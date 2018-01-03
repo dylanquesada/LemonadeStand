@@ -8,5 +8,14 @@ namespace LemonadeStand
 {
     class Game
     {
+        //member variables
+
+        //constructor
+
+        //member methods
+        public void RunGame()
+        {
+
+        }
     }
 }
