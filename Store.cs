@@ -29,13 +29,19 @@ namespace LemonadeStand
                     case "done":
                         option = "done";
                         break;
+                    case "cups":
+                        Player.BuysCups();
+                        break;
                     case "lemons":
                         Console.WriteLine("");
+                        player.BuyLemons();
                         break;
                     case "sugar":
                         Console.WriteLine("");
+                        Player.BuySugar();
                         break;
                     case "ice":
+                        Player.BuyIce();
                         Console.WriteLine("");
                         break;
                     default:

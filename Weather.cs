@@ -8,6 +8,7 @@ namespace LemonadeStand
 {
     class Weather
     {
+       
         //member variables
         private int temperature {
             get
@@ -25,17 +26,17 @@ namespace LemonadeStand
        //     "Overcast",
        //     "Partly Cloudy",
        //     "Clear" };
-        Random rnd = new Random();
+        
         //constructor
-        public Weather()
+        public Weather(Random random)
         {
-            this.temperature = generateTemperature();
+            temperature = generateTemperature(random);
         }
 
         //member methods
-        private int generateTemperature()
+        private int generateTemperature(Random random)
         {
-            temperature = rnd.Next(1, 110);
+            temperature = random.Next(1, 110);
             return temperature;
         }
 
