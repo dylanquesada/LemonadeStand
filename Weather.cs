@@ -9,7 +9,16 @@ namespace LemonadeStand
     class Weather
     {
         //member variables
-        private int temperature;
+        private int temperature {
+            get
+            {
+                return temperature;
+            }
+            set
+            {
+                temperature = value;
+            }
+        }
         private string atmosphere;
         //private List<string> atmospheres = new List<string> {
        //     "Precipiation",
@@ -20,7 +29,7 @@ namespace LemonadeStand
         //constructor
         public Weather()
         {
-            temperature = generateTemperature();
+            this.temperature = generateTemperature();
         }
 
         //member methods
