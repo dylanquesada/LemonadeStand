@@ -11,14 +11,17 @@ namespace LemonadeStand
         //member variables
         private int temperature;
         private string atmosphere;
-        private List<string> atmospheres = new List<string> {
-            "Precipiation",
-            "Overcast",
-            "Partly Cloudy",
-            "Clear" };
+        //private List<string> atmospheres = new List<string> {
+       //     "Precipiation",
+       //     "Overcast",
+       //     "Partly Cloudy",
+       //     "Clear" };
         Random rnd = new Random();
         //constructor
-
+        public Weather()
+        {
+            temperature = generateTemperature();
+        }
 
         //member methods
         private int generateTemperature()
