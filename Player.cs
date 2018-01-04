@@ -21,9 +21,13 @@ namespace LemonadeStand
         {
             //money -= 
         }
-        public decimal GiveMoney(decimal moneySpent, decimal money)
+        private decimal GiveMoney(decimal moneySpent, decimal money)
         {
             return money - moneySpent;
+        }
+        private decimal EarnMoney(decimal moneyEarned, decimal money)
+        {
+            return moneyEarned + money;
         }
     }
 }
