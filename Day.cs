@@ -18,9 +18,20 @@ namespace LemonadeStand
             Weather weather = new Weather();
         }
         //member methods
-        public int GenerateNumberOfCustomers(Weather weather)
+        private int GenerateNumberOfCustomers(Weather weather)
         {
             return weather.Temperature * TemperatureCustomerModifier;
+        }
+
+        private List<Customer> GenerateCustomersToList(int customers)
+        {
+            List<Customer> listOfCustomers = new List<Customer>();
+            for (int i = 0; i < customers; i++)
+            {
+                Customer customer = new Customer();
+                listOfCustomers.Add(customer);
+            }
+            return listOfCustomers;
         }
     }
 }

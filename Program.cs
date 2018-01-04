@@ -12,10 +12,8 @@ namespace LemonadeStand
         {
             Game game = new Game();
             // game.RunGame();
-            Inventory test = new Inventory();
-            UserInterface t = new UserInterface();
-            test.AlterInventory(3, "cups");
-            test.DisplayInventory(test);
+            Day day = new Day();
+           day.GenerateCustomers(10);
             Console.Read();
         }
         

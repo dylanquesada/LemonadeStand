@@ -10,6 +10,11 @@ namespace LemonadeStand
     {
         //member variables
         private bool purchase = false;
+        public bool Purchase
+        {
+            get { return purchase; }
+            set { purchase = value; }
+        }
         //constructor
         public Customer()
         {
