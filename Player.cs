@@ -44,6 +44,10 @@ namespace LemonadeStand
         {
             Money = GiveMoney(stuffCost * quantity, Money);
         }
+        public void SellCups(decimal cupPrice, int cupsSsold)
+        {
+            Money += cupPrice * cupsSsold;
+        }
         private decimal GiveMoney(decimal moneySpent, decimal money)
         {
             return money - moneySpent;
