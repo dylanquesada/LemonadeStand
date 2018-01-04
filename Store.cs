@@ -10,10 +10,30 @@ namespace LemonadeStand
     {
         //member variables
         private string option;
-        private int CostOfCups;
-        private int CostOfLemons;
-        private int CostOfIceCubes;
-        private int CostOfSugarUnits;
+        private int costOfCups;
+        private int costOfLemons;
+        private int costOfIceCubes;
+        private int costOfSugarUnits;
+        public int CostOfCups
+        {
+            get { return costOfCups; }
+            set { costOfCups = value; }
+        }
+        public int CostOfLemons
+        {
+            get { return costOfLemons; }
+            set { costOfLemons = value; }
+        }
+        public int CostOfIcecubes
+        {
+            get { return costOfIceCubes; }
+            set { costOfIceCubes = value; }
+        }
+        public int CostOfSugarUnits
+        {
+            get { return costOfSugarUnits; }
+            set { costOfSugarUnits = value; }
+        }
         private UserInterface userInterface = new UserInterface();
         //constructor
         public Store()
@@ -35,19 +55,19 @@ namespace LemonadeStand
                         break;
                     case "cups":
                         userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(CostOfCups , CollectQuantityRequested());
+                        player.BuyStuff(costOfCups , CollectQuantityRequested());
                         break;
                     case "lemons":
                         userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(CostOfLemons, CollectQuantityRequested());
+                        player.BuyStuff(costOfLemons, CollectQuantityRequested());
                         break;
                     case "sugar units":
                         userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(CostOfSugarUnits, CollectQuantityRequested());
+                        player.BuyStuff(costOfSugarUnits, CollectQuantityRequested());
                         break;
                     case "ice cubes":
                         userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(CostOfIceCubes, CollectQuantityRequested());
+                        player.BuyStuff(costOfIceCubes, CollectQuantityRequested());
                         break;
                     default:
                         Console.WriteLine("Sorry, '{0}' is not a valid keyword. Please try again.", option);
