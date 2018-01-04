@@ -21,5 +21,9 @@ namespace LemonadeStand
         {
             return Console.ReadLine();
         }
+        public int GetUserIntInput()
+        {
+            return Convert.ToInt32(Console.ReadLine());
+        }
     }
 }

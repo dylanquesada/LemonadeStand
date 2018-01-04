@@ -36,7 +36,7 @@ namespace LemonadeStand
         //constructor
         public Player()
         {
-
+            Inventory inventory = new Inventory();
 
         }
         //member methods
