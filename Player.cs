@@ -37,11 +37,12 @@ namespace LemonadeStand
         public Player()
         {
 
+
         }
         //member methods
-        public void BuyCups()
+        public void BuyStuff(decimal stuffCost, int quantity)
         {
-            //money -= 
+            Money = GiveMoney(stuffCost * quantity, Money);
         }
         private decimal GiveMoney(decimal moneySpent, decimal money)
         {
