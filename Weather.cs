@@ -8,17 +8,12 @@ namespace LemonadeStand
 {
     class Weather
     {
-       
+
         //member variables
-        private int temperature {
-            get
-            {
-                return temperature;
-            }
-            set
-            {
-                temperature = value;
-            }
+        private int temperature;
+        public int Temperature{
+            get { return temperature; }
+            set { temperature = value; }
         }
         private string atmosphere;
         //private List<string> atmospheres = new List<string> {
@@ -28,9 +23,9 @@ namespace LemonadeStand
        //     "Clear" };
         
         //constructor
-        public Weather(Random random)
+        public Weather()
         {
-            temperature = generateTemperature(random);
+            //temperature = generateTemperature(rnd);
         }
 
         //member methods
