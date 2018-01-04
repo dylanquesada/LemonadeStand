@@ -12,26 +12,14 @@ namespace LemonadeStand
         private decimal money;
         public decimal Money
         {
-            get
-            {
-                return money;
-            }
-            set
-            {
-                money = value;
-            }
+            get { return money; }
+            set { money = value; }
         }
         private string name;
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                name = value;
-            }
+            get { return name; }
+            set { name = value; }
         }
         //constructor
         public Player()

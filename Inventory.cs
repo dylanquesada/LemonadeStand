@@ -11,52 +11,29 @@ namespace LemonadeStand
         //member variables
         private int numberOfCups;
         private int numberOfLemons;
-        private int numberOfIcecubes;
+        private int numberOfIceCubes;
         private int numberOfSugarUnits;
         public int NumberOfCups
         {
-            get
-            {
-                return numberOfCups;
-            }
-            set
-            {
-                numberOfCups = value;
-            }
+            get { return numberOfCups; }
+            set { numberOfCups = value; }
         }
         public int NumberOfLemons
         {
-            get
-            {
-                return numberOfLemons;
-            }
-            set
-            {
-                numberOfLemons = value;
-            }
+            get { return numberOfLemons; }
+            set { numberOfLemons = value; }
         }
-        public int NumberOfIcecubes
+        public int NumberOfIceCubes
         {
-            get
-            {
-                return numberOfIcecubes;
-            }
-            set
-            {
-                numberOfIcecubes = value;
-            }
+            get { return numberOfIceCubes; }
+            set { numberOfIceCubes = value; }
         }
         public int NumberOfSugarUnits
         {
-            get
-            {
-                return numberOfSugarUnits;
-            }
-            set
-            {
-                numberOfSugarUnits = value;
-            }
+            get { return numberOfSugarUnits; }
+            set { numberOfSugarUnits = value; }
         }
+  
 
         //constructor
         public Inventory()
@@ -76,7 +53,7 @@ namespace LemonadeStand
                     numberOfLemons += quantity;
                     break;
                 case "ice":
-                    NumberOfIcecubes += quantity;
+                    NumberOfIceCubes += quantity;
                     break;
                 case "sugar":
                     NumberOfSugarUnits += quantity;
