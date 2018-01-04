@@ -11,6 +11,11 @@ namespace LemonadeStand
         //member variables
 
         //constructor
+        public Game()
+        {
+            Player player = new Player();
+            Random rnd = new Random();
+        }
 
         //member methods
         public void RunGame()

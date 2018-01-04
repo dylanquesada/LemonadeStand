@@ -8,5 +8,13 @@ namespace LemonadeStand
 {
     class Customer
     {
+        //member variables
+        private bool purchase = false;
+        //constructor
+        public Customer()
+        {
+
+        }
+        //member methods
     }
 }

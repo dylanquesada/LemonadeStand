@@ -17,7 +17,7 @@ namespace LemonadeStand
             
         }
         //member methods
-        public void DisplayStore()
+        public void DisplayStore(Player player)
         {
             option = "";
             while (!(option == "done"))
@@ -30,7 +30,7 @@ namespace LemonadeStand
                         option = "done";
                         break;
                     case "cups":
-                        Player.BuysCups();
+                        player.BuyCups();
                         break;
                     case "lemons":
                         Console.WriteLine("");
@@ -50,5 +50,6 @@ namespace LemonadeStand
                 }
             }
         }
+       
     }
 }

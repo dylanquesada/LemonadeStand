@@ -8,5 +8,18 @@ namespace LemonadeStand
 {
     class UserInterface
     {
+        // member variables
+
+        //constructor
+        public UserInterface()
+        {
+
+        }
+
+        // member methods
+        public string GetUserInput()
+        {
+            return Console.ReadLine();
+        }
     }
 }
