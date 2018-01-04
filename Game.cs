@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
         //member variables
         Random rnd;
+        Store store;
         private int numberOfTurns = 7;
         public int NumberOfTurns
         {
@@ -19,19 +20,25 @@ namespace LemonadeStand
         //constructor
         public Game()
         {
-            Player player = new Player();
-            rnd = new Random();
+            
+            
+            
         }
 
         //member methods
         public void RunGame()
         {
+            Player player = new Player();
+            store = new Store();
+            rnd = new Random();
             //Initial Menu -- get name, number of days to play
             Console.WriteLine("Welcome to Lemonade Stand.");
             //Loop
             for (int i = 0; i < numberOfTurns; i++)
             {
+                store.DisplayStore(player);
 
+                Day day = new Day(rnd);
             }
                 //Set Recipe, Set Cost, Buy Stuff
                 //Run Day

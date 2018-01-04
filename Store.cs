@@ -10,26 +10,27 @@ namespace LemonadeStand
     {
         //member variables
         private string option;
-        private int costOfCups;
-        private int costOfLemons;
-        private int costOfIceCubes;
-        private int costOfSugarUnits;
-        public int CostOfCups
+        private decimal costOfCups = .05m;
+        private decimal costOfLemons = .5m;
+        private decimal costOfIceCubes = .01m;
+        private decimal costOfSugarUnits = .05m;
+        
+        public decimal CostOfCups
         {
             get { return costOfCups; }
             set { costOfCups = value; }
         }
-        public int CostOfLemons
+        public decimal CostOfLemons
         {
             get { return costOfLemons; }
             set { costOfLemons = value; }
         }
-        public int CostOfIcecubes
+        public decimal CostOfIcecubes
         {
             get { return costOfIceCubes; }
             set { costOfIceCubes = value; }
         }
-        public int CostOfSugarUnits
+        public decimal CostOfSugarUnits
         {
             get { return costOfSugarUnits; }
             set { costOfSugarUnits = value; }
@@ -55,7 +56,7 @@ namespace LemonadeStand
                         break;
                     case "cups":
                         userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(costOfCups , CollectQuantityRequested());
+                        player.BuyStuff(costOfCups, CollectQuantityRequested());
                         break;
                     case "lemons":
                         userInterface.DisplayStoreRequest(option);
@@ -74,6 +75,7 @@ namespace LemonadeStand
                         DisplayStore(player);
                         break;
                 }
+                Console.WriteLine("{0}'s wallet: ${1}",player.Name , player.Money);
             }
         }
         private void DisplayBuyOptions(string type)
@@ -84,6 +86,13 @@ namespace LemonadeStand
         {
             return userInterface.GetUserIntInput();
         }
-       
+        private bool ValidTransaction(Player player, decimal cost)
+        {
+            if (player.Money > cost)
+            {
+                return true;
+            }
+                return false;
+        }    
     }
 }

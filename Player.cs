@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         //member variables
         UserInterface userInterface;
-        private decimal money;
+        private decimal money = 20;
         public decimal Money
         {
             get { return money; }
