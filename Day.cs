@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         //member variables
         private Random rnd;
-        private int TemperatureCustomerModifier = 2;
+        private int temperatureCustomerModifier = 2;
         private int numberOfCustomers;
 
         //constructor
@@ -21,15 +21,15 @@ namespace LemonadeStand
         //member methods
         private int GenerateNumberOfCustomers(Weather weather)
         {
-            return weather.Temperature * TemperatureCustomerModifier;
+            return weather.Temperature * temperatureCustomerModifier;
         }
 
-        private List<Customer> GenerateCustomersToList(int customers)
+        private List<Customer> GenerateCustomersToList(int customers, Weather weather)
         {
             List<Customer> listOfCustomers = new List<Customer>();
             for (int i = 0; i < customers; i++)
             {
-                Customer customer = new Customer(rnd);
+                Customer customer = new Customer(rnd, weather.Temperature);
                 listOfCustomers.Add(customer);
             }
             return listOfCustomers;

@@ -17,10 +17,19 @@ namespace LemonadeStand
             set { purchase = value; }
         }
         //constructor
-        public Customer(Random rnd)
-        {
+        public Customer(Random rnd, int temperature)
+        {  
             randomNumber = rnd.Next(1, 50);
         }
         //member methods
+        public bool CheckForThirsty(Random rnd, Customer customer)
+        {//TODO: FIX
+            if (customer.randomNumber < 25) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
     }
 }

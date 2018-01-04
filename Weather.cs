@@ -16,11 +16,11 @@ namespace LemonadeStand
             set { temperature = value; }
         }
         private string atmosphere;
-        //private List<string> atmospheres = new List<string> {
-       //     "Precipiation",
-       //     "Overcast",
-       //     "Partly Cloudy",
-       //     "Clear" };
+        private List<string> atmospheres = new List<string> {
+            "Precipiation",
+            "Overcast",
+            "Partly Cloudy",
+            "Clear" };
         
         //constructor
         public Weather(Random rnd)

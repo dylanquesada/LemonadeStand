@@ -9,6 +9,7 @@ namespace LemonadeStand
     class Player
     {
         //member variables
+        UserInterface userInterface;
         private decimal money;
         public decimal Money
         {
@@ -24,9 +25,16 @@ namespace LemonadeStand
         //constructor
         public Player()
         {
+            userInterface = new UserInterface();
             Inventory inventory = new Inventory();
+            SetUserName();
         }
         //member methods
+        private void SetUserName()
+        {
+            Console.WriteLine("Enter name for player:");
+            Name = userInterface.GetUserInput();
+        }
         public void BuyStuff(decimal stuffCost, int quantity)
         {
             Money = GiveMoney(stuffCost * quantity, Money);
