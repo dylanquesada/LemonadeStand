@@ -62,5 +62,21 @@ namespace LemonadeStand
                     break;
             }
         }
+        public void DisplayInventory(Inventory inventory, Player player)
+        {
+            Console.WriteLine("{0}'s Inventory:");
+            Console.WriteLine("Cups: {0}", NumberOfCups);
+            Console.WriteLine("Lemons: {0}", NumberOfLemons);
+            Console.WriteLine("Sugar Units: {0}", NumberOfSugarUnits);
+            Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
+        }
+        public void DisplayInventory(Inventory inventory)
+        {
+            Console.WriteLine("Your Inventory:");
+            Console.WriteLine("Cups: {0}", NumberOfCups);
+            Console.WriteLine("Lemons: {0}", NumberOfLemons);
+            Console.WriteLine("Sugar Units: {0}", NumberOfSugarUnits);
+            Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
+        }
     }
 }

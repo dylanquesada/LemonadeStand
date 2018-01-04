@@ -25,7 +25,6 @@ namespace LemonadeStand
         public Player()
         {
             Inventory inventory = new Inventory();
-
         }
         //member methods
         public void BuyStuff(decimal stuffCost, int quantity)
