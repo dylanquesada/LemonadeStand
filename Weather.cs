@@ -23,9 +23,9 @@ namespace LemonadeStand
        //     "Clear" };
         
         //constructor
-        public Weather()
+        public Weather(Random rnd)
         {
-            //temperature = generateTemperature(rnd);
+            temperature = generateTemperature(rnd);
         }
 
         //member methods

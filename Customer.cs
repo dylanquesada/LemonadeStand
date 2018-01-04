@@ -9,6 +9,7 @@ namespace LemonadeStand
     class Customer
     {
         //member variables
+        private int randomNumber;
         private bool purchase = false;
         public bool Purchase
         {
@@ -16,9 +17,9 @@ namespace LemonadeStand
             set { purchase = value; }
         }
         //constructor
-        public Customer()
+        public Customer(Random rnd)
         {
-
+            randomNumber = rnd.Next(1, 50);
         }
         //member methods
     }

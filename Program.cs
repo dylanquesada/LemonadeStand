@@ -12,8 +12,7 @@ namespace LemonadeStand
         {
             Game game = new Game();
             // game.RunGame();
-            Day day = new Day();
-           day.GenerateCustomers(10);
+           
             Console.Read();
         }
         
