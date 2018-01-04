@@ -25,5 +25,9 @@ namespace LemonadeStand
         {
             return Convert.ToInt32(Console.ReadLine());
         }
+        public void DisplayStoreRequest(string type)
+        {
+            Console.WriteLine("How many {0} would you like to purchase?", type);
+        }
     }
 }
