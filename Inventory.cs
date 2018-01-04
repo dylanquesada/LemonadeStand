@@ -65,21 +65,21 @@ namespace LemonadeStand
         }
 
         //member methods
-        public void AddToInventory(int quantity, string type)
+        public void AlterInventory(int quantity, string type)
         {
             switch (type)
             {
                 case "cups":
-
+                    NumberOfCups += quantity;
                     break;
                 case "lemons":
-
+                    numberOfLemons += quantity;
                     break;
                 case "ice":
-
+                    NumberOfIcecubes += quantity;
                     break;
                 case "sugar":
-
+                    NumberOfSugarUnits += quantity;
                     break;
                 default:
                     break;
