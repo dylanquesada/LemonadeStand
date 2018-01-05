@@ -12,6 +12,7 @@ namespace LemonadeStand
         private Random rnd;
         private int temperatureCustomerModifier = 2;
         private int numberOfCustomers;
+        Weather weather;
 
         //constructor
         public Day(Random rnd)
@@ -33,6 +34,10 @@ namespace LemonadeStand
                 listOfCustomers.Add(customer);
             }
             return listOfCustomers;
+        }
+        public void RunDay()
+        {
+            List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather);
         }
     }
 }

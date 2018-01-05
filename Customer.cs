@@ -9,8 +9,14 @@ namespace LemonadeStand
     class Customer
     {
         //member variables
+        private int chanceOfBuying;
         private int randomNumber;
         private bool purchase = false;
+        public int ChanceOfBuying
+        {
+            get { return chanceOfBuying; }
+            set { chanceOfBuying = value; }
+        }
         public bool Purchase
         {
             get { return purchase; }
@@ -30,6 +36,26 @@ namespace LemonadeStand
             else {
                 return true;
             }
+        }
+        public void AccountForWeather(Weather weather)
+        {
+            
+        }
+        public void AccountForCost()
+        {
+
+        }
+        public void AccountForIngredients()
+        {
+
+        }
+        private bool CheckWillBuy()
+        {
+            if(chanceOfBuying > 50)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
