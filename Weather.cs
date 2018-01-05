@@ -10,6 +10,8 @@ namespace LemonadeStand
     {
 
         //member variables
+        private int ChanceOfActOfGod = 10000000;
+        private int MagicNumber = 42;
         private int temperature;
         public int Temperature{
             get { return temperature; }
@@ -17,10 +19,10 @@ namespace LemonadeStand
         }
         private string atmosphere;
         private List<string> atmospheres = new List<string> {
-            "Precipiation",
-            "Overcast",
-            "Partly Cloudy",
-            "Clear" };
+            "precipiation",
+            "overcast",
+            "partly cloudy",
+            "clear" };
         
         //constructor
         public Weather(Random rnd)
@@ -33,6 +35,14 @@ namespace LemonadeStand
         {
             temperature = random.Next(1, 110);
             return temperature;
+        }
+        private void GenerateAtmosphere(Random rnd)
+        {
+            atmosphere = atmospheres[rnd.Next(1, 4)];
+            if (rnd.Next(1, ChanceOfActOfGod) == MagicNumber)
+            {
+                atmosphere = "tornado";
+            }
         }
 
     }
