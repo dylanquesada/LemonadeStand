@@ -72,9 +72,9 @@ namespace LemonadeStand
                     break;
             }
         }
-        public void AccountForCost()
+        public void AccountForCost(decimal cost)
         {
-
+            ChanceOfBuying /= (int)cost;
         }
         public void AccountForIngredients()
         {
