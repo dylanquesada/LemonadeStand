@@ -16,12 +16,7 @@ namespace LemonadeStand
             get { return inventory; }
             set { inventory = value; }
         }
-        private decimal money = 20;
-        public decimal Money
-        {
-            get { return money; }
-            set { money = value; }
-        }
+        
         private string name;
         public string Name
         {
@@ -44,12 +39,9 @@ namespace LemonadeStand
         
         public void SellCups(decimal cupPrice, int cupsSold)
         {
-            Money += cupPrice * cupsSold;
+            Inventory.Money += cupPrice * cupsSold;
         }
-        public decimal GiveMoney(decimal moneySpent, decimal money)
-        {
-            return money - moneySpent;
-        }
+        
         private decimal EarnMoney(decimal moneyEarned, decimal money)
         {
             return moneyEarned + money;

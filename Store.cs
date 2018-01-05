@@ -49,38 +49,76 @@ namespace LemonadeStand
             Console.WriteLine("Lemons: ${0}", CostOfLemons);
             Console.WriteLine("Sugar Units: ${0}", CostOfSugarUnits);
             Console.WriteLine("Ice Cubes: ${0}", CostOfIceCubes);
+
         }
 
-        public void RunStore(Player player, Inventory inventory)
+
+        //TODO simplify RunStore (maybe move away from switch and use method that takes in 'option')
+        public void RunStore(Player player)
         {
             option = "";
             int quantity;
             while (!(option == "done"))
             {
                 DisplayStore();
+                Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.inventory.Money);
                 option = userInterface.GetUserInput();
-                userInterface.DisplayStoreRequest(option);
-                quantity = CollectQuantityRequested();
+                
                 switch (option)
                 {
                     case "done":
                         option = "done";
                         break;
                     case "cups":
-                        ExecuteTransaction(player.inventory, CostOfCups, quantity, option);                                   
+                        userInterface.DisplayStoreRequest(option);
+                        quantity = CollectQuantityRequested();
+                        if (ValidTransaction(player, (quantity * CostOfCups)))
+                        {
+                            ExecuteTransaction(player.inventory, CostOfCups, quantity, option);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sorry, you haven't the monies for the transaction requested.");
+                        }
                         break;
                     case "lemons":
-                        ExecuteTransaction(player.inventory, CostOfLemons, quantity, option);
+                        userInterface.DisplayStoreRequest(option);
+                        quantity = CollectQuantityRequested();
+                        if (ValidTransaction(player, (quantity * CostOfLemons)))
+                        {
+                            ExecuteTransaction(player.inventory, CostOfLemons, quantity, option);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sorry, you haven't the monies for the transaction requested.");
+                        }
                         break;
                     case "sugar units":
-                        ExecuteTransaction(player.inventory, CostOfSugarUnits, quantity, option);
+                        userInterface.DisplayStoreRequest(option);
+                        quantity = CollectQuantityRequested();
+                        if (ValidTransaction(player, (quantity * CostOfSugarUnits)))
+                        {
+                            ExecuteTransaction(player.inventory, CostOfSugarUnits, quantity, option);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sorry, you haven't the monies for the transaction requested.");
+                        }
                         break;
                     case "ice cubes":
-                        ExecuteTransaction(player.inventory, CostOfIceCubes, quantity, option);
+                        userInterface.DisplayStoreRequest(option);
+                        quantity = CollectQuantityRequested();
+                        if (ValidTransaction(player, (quantity * CostOfIceCubes))) {
+                            ExecuteTransaction(player.inventory, CostOfIceCubes, quantity, option);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Sorry, you haven't the monies for the transaction requested.");
+                        }
                         break;
                     default:
                         Console.WriteLine("Sorry, '{0}' is not a valid keyword. Please try again.", option);
-                        RunStore(player, player.inventory);
+                        RunStore(player);
                         break;
                 }
                 Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.inventory.Money);
@@ -96,7 +134,7 @@ namespace LemonadeStand
         }
         private bool ValidTransaction(Player player, decimal cost)
         {
-            if (player.Money > cost)
+            if (player.Inventory.Money > cost)
             {
                 return true;
             }
@@ -105,7 +143,7 @@ namespace LemonadeStand
         public void ExecuteTransaction(Inventory inventory, decimal unitCost, int quantity, string option)
         {
             inventory.AlterInventory(quantity, option);
-            inventory.AlterInventory(-(unitCost * quantity), option);
+            inventory.AlterInventory(-(unitCost * quantity));
         }
         
     }

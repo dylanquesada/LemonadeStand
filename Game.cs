@@ -36,7 +36,7 @@ namespace LemonadeStand
             //Loop
             for (int i = 0; i < numberOfTurns; i++)
             {
-                store.RunStore(player, player.inventory);
+                store.RunStore(player);
                 Day day = new Day(rnd);
             }
                 //Set Recipe, Set Cost, Buy Stuff

@@ -72,7 +72,7 @@ namespace LemonadeStand
                     break;
             }
         }
-        public void AlterInventory(decimal quantity, string type)
+        public void AlterInventory(decimal quantity)
         {
             Money += quantity;
         }
