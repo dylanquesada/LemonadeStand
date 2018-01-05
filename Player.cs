@@ -52,5 +52,15 @@ namespace LemonadeStand
         {
             return moneyEarned + money;
         }
+        public void MakeLemonade()
+        {
+
+            if (Inventory.NumberOfLemons >.Recipe.LemonsNeeded
+                && Inventory.NumberOfIceCubes > Recipe.IceCubesNeeded
+                && Inventory.NumberOfSugarUnits > Recipe.SugarUnitsNeeded)
+            {
+                Inventory.PreparedLemonade++;
+            }
+        }
     }
 }
