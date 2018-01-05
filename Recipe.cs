@@ -13,7 +13,8 @@ namespace LemonadeStand
         private int lemonsNeeded;
         private int sugarUnitsNeeded;
         private int iceCubesNeeded;
-        
+        private decimal price;
+
         //accessor for member variables
 
         public int LemonsNeeded
@@ -31,7 +32,12 @@ namespace LemonadeStand
             get { return iceCubesNeeded; }
             set { iceCubesNeeded = value; }
         }
-
+        public decimal Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+                  
         // constructor
 
         public Recipe()
@@ -39,6 +45,7 @@ namespace LemonadeStand
             LemonsNeeded = 1;
             SugarUnitsNeeded = 10;
             IceCubesNeeded = 1;
+            price = .25m;
         }
         // member methods
         public void SetRecipe(UserInterface userInterface)
