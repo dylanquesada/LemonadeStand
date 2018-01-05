@@ -18,6 +18,11 @@ namespace LemonadeStand
             set { temperature = value; }
         }
         private string atmosphere;
+        public string Atmosphere
+        {
+            get { return atmosphere; }
+            set { atmosphere = value; }
+        }
         private List<string> atmospheres = new List<string> {
             "precipiation",
             "overcast",

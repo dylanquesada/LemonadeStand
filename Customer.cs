@@ -39,7 +39,38 @@ namespace LemonadeStand
         }
         public void AccountForWeather(Weather weather)
         {
-            
+            switch (weather.Atmosphere)
+            {
+                case "tornado":
+                    Console.WriteLine("░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄");
+                    Console.WriteLine("░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄");
+                    Console.WriteLine("░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█");
+                    Console.WriteLine("░░█░░░░░░▄██▀▄▄░░░░░▄▄▄░░░█");
+                    Console.WriteLine("░▀▒▄▄▄▒░█▀▀▀▀▄▄█░░░██▄▄█░░░█");
+                    Console.WriteLine("█▒█▒▄░▀▄▄▄▀░░░░░░░░█░░░▒▒▒▒▒█");
+                    Console.WriteLine("█▒█░█▀▄▄░░░░░█▀░░░░▀▄░░▄▀▀▀▄▒█");
+                    Console.WriteLine("░█▀▄░█▄░█▀▄▄░▀░▀▀░▄▄▀░░░░█░░█");
+                    Console.WriteLine("░░█░░▀▄▀█▄▄░█▀▀▀▄▄▄▄▀▀█▀██░█");
+                    Console.WriteLine("░░░█░░██░░▀█▄▄▄█▄▄█▄████░█");
+                    Console.WriteLine("░░░░█░░░▀▀▄░█░░░█░███████░█");
+                    Console.WriteLine("░░░░░▀▄░░░▀▀▄▄▄█▄█▄█▄█▄▀░░█");
+                    Console.WriteLine("░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░█");
+                    Console.WriteLine("░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░█");
+                    Console.WriteLine("░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░█");
+                    break;
+                case "clear":
+                    ChanceOfBuying += 20;
+                    break;
+                case "partly cloudy":
+                    ChanceOfBuying += 15;
+                    break;
+                case "overcast":
+                    ChanceOfBuying -= 15;
+                    break;
+                case "precipitation":
+                    ChanceOfBuying -= 20;
+                    break;
+            }
         }
         public void AccountForCost()
         {
