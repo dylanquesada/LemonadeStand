@@ -41,7 +41,7 @@ namespace LemonadeStand
             IceCubesNeeded = 1;
         }
         // member methods
-        private void SetRecipe(string option, UserInterface userInterface)
+        public void SetRecipe(UserInterface userInterface)
         {
             option = "";
             while(!(option == "done")) { 

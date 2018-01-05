@@ -9,8 +9,11 @@ namespace LemonadeStand
     class Game
     {
         //member variables
+        string option;
         Random rnd;
         Store store;
+        UserInterface userInterface;
+        private bool ready = false;
         private int numberOfTurns = 7;
         public int NumberOfTurns
         {
@@ -20,9 +23,9 @@ namespace LemonadeStand
         //constructor
         public Game()
         {
-            
-            
-            
+            userInterface = new UserInterface();
+
+
         }
 
         //member methods
@@ -36,13 +39,36 @@ namespace LemonadeStand
             //Loop
             for (int i = 0; i < numberOfTurns; i++)
             {
-                store.RunStore(player);
+                option = "";
+                while (!ready)
+                {
+                    Console.WriteLine("What would you like to do? Enter a keyword: 'recipe', 'store', 'go'");
+                    switch (Console.ReadLine())
+                    {
+                        case "store":
+                            store.RunStore(player);
+                            break;
+                        case "recipe":
+                            player.Recipe.SetRecipe(userInterface);
+                            break;
+                        case "go":
+                            ready = true;
+                            break;
+                        default:
+                            Console.WriteLine("Sorry, '{0}' is not a valid entry. Try again.", option);
+                            option = userInterface.GetUserInput();
+                            break;
+                    }
+                }
                 Day day = new Day(rnd);
-            }
-                //Set Recipe, Set Cost, Buy Stuff
-                //Run Day
                 //Display Details
-
+            }
         }
     }
 }
+
+
+                //Set Recipe, Set Cost, Buy Stuff
+                //Run Day
+
+
