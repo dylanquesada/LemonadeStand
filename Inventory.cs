@@ -13,6 +13,7 @@ namespace LemonadeStand
         private int numberOfLemons;
         private int numberOfIceCubes;
         private int numberOfSugarUnits;
+        private decimal money;
         public int NumberOfCups
         {
             get { return numberOfCups; }
@@ -33,11 +34,20 @@ namespace LemonadeStand
             get { return numberOfSugarUnits; }
             set { numberOfSugarUnits = value; }
         }
-  
+        public decimal Money
+        {
+            get { return money; }
+            set { money = value; }
+        }
 
         //constructor
         public Inventory()
         {
+            NumberOfCups = 0;
+            NumberOfLemons = 0;
+            NumberOfSugarUnits = 0;
+            NumberOfIceCubes = 0;
+            Money = 20m;
 
         }
 
@@ -50,7 +60,7 @@ namespace LemonadeStand
                     NumberOfCups += quantity;
                     break;
                 case "lemons":
-                    numberOfLemons += quantity;
+                    NumberOfLemons += quantity;
                     break;
                 case "ice":
                     NumberOfIceCubes += quantity;
@@ -62,13 +72,18 @@ namespace LemonadeStand
                     break;
             }
         }
+        public void AlterInventory(decimal quantity, string type)
+        {
+            Money += quantity;
+        }
         public void DisplayInventory(Inventory inventory, Player player)
         {
-            Console.WriteLine("{0}'s Inventory:");
+            Console.WriteLine("{0}'s Inventory:", player.Name);
             Console.WriteLine("Cups: {0}", NumberOfCups);
             Console.WriteLine("Lemons: {0}", NumberOfLemons);
             Console.WriteLine("Sugar Units: {0}", NumberOfSugarUnits);
             Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
+            Console.WriteLine("Money Remaining: ${0}", Money);
         }
         public void DisplayInventory(Inventory inventory)
         {
@@ -77,6 +92,7 @@ namespace LemonadeStand
             Console.WriteLine("Lemons: {0}", NumberOfLemons);
             Console.WriteLine("Sugar Units: {0}", NumberOfSugarUnits);
             Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
+            Console.WriteLine("Money Remaining: ${0}", Money);
         }
     }
 }

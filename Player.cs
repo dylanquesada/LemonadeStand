@@ -10,6 +10,12 @@ namespace LemonadeStand
     {
         //member variables
         UserInterface userInterface;
+        public Inventory inventory;
+        public Inventory Inventory
+        {
+            get { return inventory; }
+            set { inventory = value; }
+        }
         private decimal money = 20;
         public decimal Money
         {
@@ -26,7 +32,7 @@ namespace LemonadeStand
         public Player()
         {
             userInterface = new UserInterface();
-            Inventory inventory = new Inventory();
+            inventory = new Inventory();
             SetUserName();
         }
         //member methods
@@ -35,15 +41,12 @@ namespace LemonadeStand
             Console.WriteLine("Enter name for player:");
             Name = userInterface.GetUserInput();
         }
-        public void BuyStuff(decimal stuffCost, int quantity)
+        
+        public void SellCups(decimal cupPrice, int cupsSold)
         {
-            Money = GiveMoney(stuffCost * quantity, Money);
+            Money += cupPrice * cupsSold;
         }
-        public void SellCups(decimal cupPrice, int cupsSsold)
-        {
-            Money += cupPrice * cupsSsold;
-        }
-        private decimal GiveMoney(decimal moneySpent, decimal money)
+        public decimal GiveMoney(decimal moneySpent, decimal money)
         {
             return money - moneySpent;
         }

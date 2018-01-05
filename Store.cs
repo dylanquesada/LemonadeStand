@@ -25,7 +25,7 @@ namespace LemonadeStand
             get { return costOfLemons; }
             set { costOfLemons = value; }
         }
-        public decimal CostOfIcecubes
+        public decimal CostOfIceCubes
         {
             get { return costOfIceCubes; }
             set { costOfIceCubes = value; }
@@ -42,40 +42,48 @@ namespace LemonadeStand
             
         }
         //member methods
-        public void DisplayStore(Player player)
+        public void DisplayStore()
+        {
+            Console.WriteLine("Welcome to the Store. Enter keyword for purchasing or 'Done' to Continue.");
+            Console.WriteLine("Cups: ${0}", CostOfCups);
+            Console.WriteLine("Lemons: ${0}", CostOfLemons);
+            Console.WriteLine("Sugar Units: ${0}", CostOfSugarUnits);
+            Console.WriteLine("Ice Cubes: ${0}", CostOfIceCubes);
+        }
+
+        public void RunStore(Player player, Inventory inventory)
         {
             option = "";
+            int quantity;
             while (!(option == "done"))
             {
-                Console.WriteLine("Welcome to the Store. Enter keyword for purchasing or 'Done' to Continue.");
+                DisplayStore();
                 option = userInterface.GetUserInput();
+                userInterface.DisplayStoreRequest(option);
+                quantity = CollectQuantityRequested();
                 switch (option)
                 {
                     case "done":
                         option = "done";
                         break;
                     case "cups":
-                        userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(costOfCups, CollectQuantityRequested());
+                        ExecuteTransaction(player.inventory, CostOfCups, quantity, option);                                   
                         break;
                     case "lemons":
-                        userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(costOfLemons, CollectQuantityRequested());
+                        ExecuteTransaction(player.inventory, CostOfLemons, quantity, option);
                         break;
                     case "sugar units":
-                        userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(costOfSugarUnits, CollectQuantityRequested());
+                        ExecuteTransaction(player.inventory, CostOfSugarUnits, quantity, option);
                         break;
                     case "ice cubes":
-                        userInterface.DisplayStoreRequest(option);
-                        player.BuyStuff(costOfIceCubes, CollectQuantityRequested());
+                        ExecuteTransaction(player.inventory, CostOfIceCubes, quantity, option);
                         break;
                     default:
                         Console.WriteLine("Sorry, '{0}' is not a valid keyword. Please try again.", option);
-                        DisplayStore(player);
+                        RunStore(player, player.inventory);
                         break;
                 }
-                Console.WriteLine("{0}'s wallet: ${1}",player.Name , player.Money);
+                Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.inventory.Money);
             }
         }
         private void DisplayBuyOptions(string type)
@@ -93,6 +101,12 @@ namespace LemonadeStand
                 return true;
             }
                 return false;
-        }    
+        }
+        public void ExecuteTransaction(Inventory inventory, decimal unitCost, int quantity, string option)
+        {
+            inventory.AlterInventory(quantity, option);
+            inventory.AlterInventory(-(unitCost * quantity), option);
+        }
+        
     }
 }
