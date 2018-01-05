@@ -65,7 +65,7 @@ namespace LemonadeStand
                     }
                 }
                 Day day = new Day(rnd);
-                day.RunDay(day.Weather, rnd);
+                day.RunDay(day.Weather, rnd, player);
                 //Display Details
             }
         }

@@ -29,19 +29,19 @@ namespace LemonadeStand
             return weather.Temperature * temperatureCustomerModifier;
         }
 
-        private List<Customer> GenerateCustomersToList(int customers, Weather weather, Random rnd)
+        private List<Customer> GenerateCustomersToList(int customers, Weather weather, Random rnd, Player player)
         {
             List<Customer> listOfCustomers = new List<Customer>();
             for (int i = 0; i < customers; i++)
             {
-                Customer customer = new Customer(rnd, weather.Temperature);
+                Customer customer = new Customer(rnd, weather, player.Recipe);
                 listOfCustomers.Add(customer);
             }
             return listOfCustomers;
         }
-        public void RunDay(Weather weather, Random rnd)
+        public void RunDay(Weather weather, Random rnd, Player player)
         {
-            List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather, rnd);
+            List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather, rnd, player);
             for (int i = 0; i < today.Count; i++)
             {
                 if (today[i].CheckWillBuy())

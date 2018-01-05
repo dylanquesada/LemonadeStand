@@ -24,11 +24,12 @@ namespace LemonadeStand
             set { purchase = value; }
         }
         //constructor
-        public Customer(Random rnd, int temperature)
+        public Customer(Random rnd, Weather weather, Recipe recipe)
         {
-            
             ChanceOfBuying = 2;  
-            randomNumber = rnd.Next(1, 50);
+            ChanceOfBuying = rnd.Next(1, 50);
+            AccountForWeather(weather);
+            AccountForIngredients(rnd, recipe);
         }
         //member methods
 
