@@ -14,6 +14,8 @@ namespace LemonadeStand
         private int numberOfIceCubes;
         private int numberOfSugarUnits;
         private decimal money;
+        private int preparedLemonade;
+
         public int NumberOfCups
         {
             get { return numberOfCups; }
@@ -39,6 +41,11 @@ namespace LemonadeStand
             get { return money; }
             set { money = value; }
         }
+        public int PreparedLemonade
+        {
+            get { return preparedLemonade; }
+            set { preparedLemonade = value; }
+        }
 
         //constructor
         public Inventory()
@@ -47,6 +54,7 @@ namespace LemonadeStand
             NumberOfLemons = 0;
             NumberOfSugarUnits = 0;
             NumberOfIceCubes = 0;
+            PreparedLemonade = 0;
             Money = 20m;
 
         }
@@ -93,6 +101,16 @@ namespace LemonadeStand
             Console.WriteLine("Sugar Units: {0}", NumberOfSugarUnits);
             Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
             Console.WriteLine("Money Remaining: ${0}", Money);
+        }
+        public void MakeLemonade(Player player)
+        {
+            
+            if (NumberOfLemons > player.Recipe.LemonsNeeded
+                && NumberOfIceCubes > player.Recipe.IceCubesNeeded
+                && NumberOfSugarUnits > player.Recipe.SugarUnitsNeeded)
+            {
+                PreparedLemonade++;
+            }
         }
     }
 }

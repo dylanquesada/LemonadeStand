@@ -9,17 +9,13 @@ namespace LemonadeStand
     class Recipe
     {
         // member variables
-        private int cupsNeeded;
+
         private int lemonsNeeded;
         private int sugarUnitsNeeded;
         private int iceCubesNeeded;
         
         //accessor for member variables
-        public int CupsNeeded
-        {
-            get { return cupsNeeded; }
-            set { cupsNeeded = value; }
-        }
+
         public int LemonsNeeded
         {
             get { return lemonsNeeded; }
@@ -35,11 +31,16 @@ namespace LemonadeStand
             get { return iceCubesNeeded; }
             set { iceCubesNeeded = value; }
         }
+
         // constructor
+
         public Recipe()
         {
-
+            LemonsNeeded = 1;
+            SugarUnitsNeeded = 10;
+            IceCubesNeeded = 1;
         }
         // member methods
+
     }
 }

@@ -9,25 +9,31 @@ namespace LemonadeStand
     class Player
     {
         //member variables
+        private string name;
         UserInterface userInterface;
-        public Inventory inventory;
+        Inventory inventory;
+        Recipe recipe;
         public Inventory Inventory
         {
             get { return inventory; }
             set { inventory = value; }
         }
-        
-        private string name;
         public string Name
         {
             get { return name; }
             set { name = value; }
+        }
+        public Recipe Recipe
+        {
+            get { return recipe; }
+            set { recipe = value; }
         }
         //constructor
         public Player()
         {
             userInterface = new UserInterface();
             inventory = new Inventory();
+            recipe = new Recipe();
             SetUserName();
         }
         //member methods
