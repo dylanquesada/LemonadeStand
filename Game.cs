@@ -42,7 +42,7 @@ namespace LemonadeStand
                 option = "";
                 while (!ready)
                 {
-                    Console.WriteLine("What would you like to do? Enter a keyword: 'recipe', 'store', 'go'");
+                    Console.WriteLine("What would you like to do? Enter a keyword: 'recipe', 'store', 'price', 'go'");
                     switch (Console.ReadLine())
                     {
                         case "store":
@@ -53,6 +53,10 @@ namespace LemonadeStand
                             break;
                         case "go":
                             ready = true;
+                            break;
+                        case "price":
+                            Console.WriteLine("What would you like the price per cup of your lemonade to be?");
+                            player.Recipe.Price = userInterface.GetUserDecimalInput();
                             break;
                         default:
                             Console.WriteLine("Sorry, '{0}' is not a valid entry. Try again.", option);
