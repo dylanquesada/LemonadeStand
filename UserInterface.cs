@@ -29,6 +29,10 @@ namespace LemonadeStand
         {
             Console.WriteLine("How many {0} would you like to purchase?", type);
         }
+        public decimal GetUserDecimalInput()
+        {
+            return Convert.ToDecimal(Console.ReadLine());
+        }
         
     }
 }
