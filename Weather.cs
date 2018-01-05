@@ -10,6 +10,7 @@ namespace LemonadeStand
     {
 
         //member variables
+        
         private int ChanceOfActOfGod = 10000000;
         private int MagicNumber = 42;
         private int temperature;
@@ -32,7 +33,8 @@ namespace LemonadeStand
         //constructor
         public Weather(Random rnd)
         {
-            temperature = generateTemperature(rnd);
+            GenerateAtmosphere(rnd);
+            Temperature = generateTemperature(rnd);
         }
 
         //member methods

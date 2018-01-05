@@ -9,15 +9,19 @@ namespace LemonadeStand
     class Day
     {
         //member variables
-        private Random rnd;
+        
         private int temperatureCustomerModifier = 2;
-        private int numberOfCustomers;
-        Weather weather;
+        private Weather weather;
+        public Weather Weather
+        {
+            get { return weather; }
+            set { weather = value; }
+        }
 
         //constructor
         public Day(Random rnd)
         {
-            Weather weather = new Weather(rnd);
+           weather = new Weather(rnd);
         }
         //member methods
         private int GenerateNumberOfCustomers(Weather weather)
@@ -25,7 +29,7 @@ namespace LemonadeStand
             return weather.Temperature * temperatureCustomerModifier;
         }
 
-        private List<Customer> GenerateCustomersToList(int customers, Weather weather)
+        private List<Customer> GenerateCustomersToList(int customers, Weather weather, Random rnd)
         {
             List<Customer> listOfCustomers = new List<Customer>();
             for (int i = 0; i < customers; i++)
@@ -35,9 +39,21 @@ namespace LemonadeStand
             }
             return listOfCustomers;
         }
-        public void RunDay()
+        public void RunDay(Weather weather, Random rnd)
         {
-            List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather);
+            List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather, rnd);
+            for (int i = 0; i < today.Count; i++)
+            {
+                if (today[i].CheckWillBuy())
+                {
+                    Console.WriteLine("1234");
+                }
+                // if(customer will buy){
+                // cups made --;
+                //money ++
+            //}
+
+            }
         }
     }
 }

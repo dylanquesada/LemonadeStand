@@ -10,7 +10,7 @@ namespace LemonadeStand
     {
         //member variables
         string option;
-        Random rnd;
+        public Random rnd;
         Store store;
         UserInterface userInterface;
         private bool ready = false;
@@ -65,6 +65,7 @@ namespace LemonadeStand
                     }
                 }
                 Day day = new Day(rnd);
+                day.RunDay(day.Weather, rnd);
                 //Display Details
             }
         }

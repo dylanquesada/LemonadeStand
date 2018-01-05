@@ -12,6 +12,7 @@ namespace LemonadeStand
         private int chanceOfBuying;
         private int randomNumber;
         private bool purchase = false;
+        private Random rnd;
         public int ChanceOfBuying
         {
             get { return chanceOfBuying; }
@@ -24,19 +25,13 @@ namespace LemonadeStand
         }
         //constructor
         public Customer(Random rnd, int temperature)
-        {  
+        {
+            
+            ChanceOfBuying = 2;  
             randomNumber = rnd.Next(1, 50);
         }
         //member methods
-        public bool CheckForThirsty(Random rnd, Customer customer)
-        {//TODO: FIX
-            if (customer.randomNumber < 25) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        }
+
         public void AccountForWeather(Weather weather)
         {
             switch (weather.Atmosphere)
@@ -76,16 +71,39 @@ namespace LemonadeStand
         {
             ChanceOfBuying /= (int)cost;
         }
-        public void AccountForIngredients()
+        public void AccountForIngredients(Random rnd, Recipe recipe)
         {
-
+            int preference = rnd.Next(1,4);
+            switch (preference)
+            {
+                case 1:
+                    if(recipe.LemonsNeeded > 2)
+                    {
+                        ChanceOfBuying += 30;
+                    }
+                    break;
+                case 2:
+                    if(recipe.IceCubesNeeded > 2)
+                    {
+                        ChanceOfBuying += 30;
+                    }
+                    break;
+                case 3:
+                    if(recipe.SugarUnitsNeeded > 2)
+                    {
+                        ChanceOfBuying += 40;
+                    }
+                    break;
+            }
         }
-        private bool CheckWillBuy()
+        public bool CheckWillBuy()
         {
             if(chanceOfBuying > 50)
             {
+                Console.Write("Yes! ");
                 return true;
             }
+            Console.WriteLine("No!");
             return false;
         }
     }
