@@ -102,15 +102,6 @@ namespace LemonadeStand
             Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
             Console.WriteLine("Money Remaining: ${0}", Money);
         }
-        public void MakeLemonade(Player player)
-        {
-            
-            if (NumberOfLemons > player.Recipe.LemonsNeeded
-                && NumberOfIceCubes > player.Recipe.IceCubesNeeded
-                && NumberOfSugarUnits > player.Recipe.SugarUnitsNeeded)
-            {
-                PreparedLemonade++;
-            }
-        }
+        
     }
 }

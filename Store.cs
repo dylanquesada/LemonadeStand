@@ -61,7 +61,7 @@ namespace LemonadeStand
             while (!(option == "done"))
             {
                 DisplayStore();
-                Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.inventory.Money);
+                Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.Inventory.Money);
                 option = userInterface.GetUserInput();
                 
                 switch (option)
@@ -74,7 +74,7 @@ namespace LemonadeStand
                         quantity = CollectQuantityRequested();
                         if (ValidTransaction(player, (quantity * CostOfCups)))
                         {
-                            ExecuteTransaction(player.inventory, CostOfCups, quantity, option);
+                            ExecuteTransaction(player.Inventory, CostOfCups, quantity, option);
                         }
                         else
                         {
@@ -86,7 +86,7 @@ namespace LemonadeStand
                         quantity = CollectQuantityRequested();
                         if (ValidTransaction(player, (quantity * CostOfLemons)))
                         {
-                            ExecuteTransaction(player.inventory, CostOfLemons, quantity, option);
+                            ExecuteTransaction(player.Inventory, CostOfLemons, quantity, option);
                         }
                         else
                         {
@@ -98,7 +98,7 @@ namespace LemonadeStand
                         quantity = CollectQuantityRequested();
                         if (ValidTransaction(player, (quantity * CostOfSugarUnits)))
                         {
-                            ExecuteTransaction(player.inventory, CostOfSugarUnits, quantity, option);
+                            ExecuteTransaction(player.Inventory, CostOfSugarUnits, quantity, option);
                         }
                         else
                         {
@@ -109,7 +109,7 @@ namespace LemonadeStand
                         userInterface.DisplayStoreRequest(option);
                         quantity = CollectQuantityRequested();
                         if (ValidTransaction(player, (quantity * CostOfIceCubes))) {
-                            ExecuteTransaction(player.inventory, CostOfIceCubes, quantity, option);
+                            ExecuteTransaction(player.Inventory, CostOfIceCubes, quantity, option);
                         }
                         else
                         {
@@ -121,7 +121,7 @@ namespace LemonadeStand
                         RunStore(player);
                         break;
                 }
-                Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.inventory.Money);
+                Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.Inventory.Money);
             }
         }
         private void DisplayBuyOptions(string type)
