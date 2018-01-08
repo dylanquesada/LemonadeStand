@@ -10,9 +10,8 @@ namespace LemonadeStand
     {
         //member variables
         private int chanceOfBuying;
-        private int randomNumber;
         private bool purchase = false;
-        private Random rnd;
+        //private Random rnd;
         public int ChanceOfBuying
         {
             get { return chanceOfBuying; }
@@ -35,6 +34,7 @@ namespace LemonadeStand
 
         public void AccountForWeather(Weather weather)
         {
+            Console.WriteLine("Before weather: {0}", ChanceOfBuying);
             switch (weather.Atmosphere)
             {
                 case "tornado":
@@ -56,24 +56,31 @@ namespace LemonadeStand
                     break;
                 case "clear":
                     ChanceOfBuying += 20;
+                    Console.WriteLine("After weather: {0}", ChanceOfBuying);
                     break;
                 case "partly cloudy":
                     ChanceOfBuying += 15;
+                    Console.WriteLine("After weather: {0}", ChanceOfBuying);
                     break;
                 case "overcast":
                     ChanceOfBuying -= 15;
+                    Console.WriteLine("After weather: {0}", ChanceOfBuying);
                     break;
                 case "precipitation":
                     ChanceOfBuying -= 20;
+                    Console.WriteLine("AW: {0}", ChanceOfBuying);
                     break;
             }
         }
         public void AccountForCost(decimal cost)
         {
+            Console.WriteLine("Before AccountForCost: {0}", ChanceOfBuying);
             ChanceOfBuying /= (int)cost;
+            Console.WriteLine("After AccountForCost: {0}", ChanceOfBuying);
         }
         public void AccountForIngredients(Random rnd, Recipe recipe)
         {
+            Console.WriteLine("Before Recipe: {0}", ChanceOfBuying);
             int preference = rnd.Next(1,4);
             switch (preference)
             {

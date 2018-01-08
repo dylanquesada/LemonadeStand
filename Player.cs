@@ -43,15 +43,12 @@ namespace LemonadeStand
             Name = userInterface.GetUserInput();
         }
         
-        public void SellCups(decimal cupPrice, int cupsSold)
+        public void SellCup(decimal cupPrice)
         {
-            Inventory.Money += cupPrice * cupsSold;
+            Inventory.Money += cupPrice;
         }
         
-        private decimal EarnMoney(decimal moneyEarned, decimal money)
-        {
-            return moneyEarned + money;
-        }
+
         public void MakeLemonade()
         {
             Inventory.PreparedLemonade++;

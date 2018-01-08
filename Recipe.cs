@@ -47,6 +47,7 @@ namespace LemonadeStand
             IceCubesNeeded = 1;
             price = .25m;
         }
+
         // member methods
         public bool HasEnoughIngredients(Inventory inventory)
         {
