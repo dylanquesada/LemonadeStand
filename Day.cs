@@ -59,7 +59,7 @@ namespace LemonadeStand
             Console.WriteLine("Today's Profit: {0}", DailyProfit);
             player.Inventory.DisplayInventory(player.Inventory, player);
         }
-        public void RunDay(Weather weather, Random rnd, Player player)
+        public decimal RunDay(Weather weather, Random rnd, Player player)
         {
             List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather, rnd, player);
             for (int i = 0; i < today.Count; i++)
@@ -86,12 +86,12 @@ namespace LemonadeStand
                 }
                 else
                 {
-                    
                     DisplayEndOfDay(player);
-
-                    return;
+                    return DailyProfit;
                 }            
             }
+            DisplayEndOfDay(player);
+            return DailyProfit;
         }
     }
 }

@@ -9,6 +9,7 @@ namespace LemonadeStand
     class Game
     {
         //member variables
+        private decimal score = 0m;
         private int gameDay = 1;
         string option;
         public Random rnd;
@@ -26,7 +27,11 @@ namespace LemonadeStand
             get { return gameDay; }
             set { gameDay = value; }
         }
-
+        public decimal Score
+        {
+            get { return score; }
+            set { score = value; }
+        }
         //constructor
         public Game()
         {
@@ -75,8 +80,9 @@ namespace LemonadeStand
                 Day day = new Day(rnd);
                 Console.WriteLine("Day {0}:", GameDay);
                 GameDay++;
-                day.RunDay(day.Weather, rnd, player);
+                score += day.RunDay(day.Weather, rnd, player);
                 //Display Details
+                Console.WriteLine("{0}'s Net Profit: ${1}", player.Name, score);
             }
         }
     }
