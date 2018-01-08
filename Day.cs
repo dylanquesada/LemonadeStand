@@ -68,6 +68,10 @@ namespace LemonadeStand
             List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather, rnd, player);
             for (int i = 0; i < today.Count; i++)
             {
+                if (player.Inventory.NumberOfCups == 0)
+                {
+                    return DailyProfit;
+                }
                 if(player.Inventory.PreparedLemonade > 0)
                 {
                     if (today[i].CheckWillBuy())
