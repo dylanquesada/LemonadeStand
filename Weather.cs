@@ -13,6 +13,7 @@ namespace LemonadeStand
         
         private int ChanceOfActOfGod = 10000000;
         private int MagicNumber = 42;
+        private int forecastedTemperature;
         private int temperature;
         public int Temperature{
             get { return temperature; }
@@ -29,7 +30,11 @@ namespace LemonadeStand
             "overcast",
             "partly cloudy",
             "clear" };
-        
+        public int ForecastedTemperature
+        {
+            get { return forecastedTemperature; }
+            set { ForecastedTemperature = value; }
+        }
         //constructor
         public Weather(Random rnd)
         {
@@ -50,6 +55,10 @@ namespace LemonadeStand
             {
                 atmosphere = "tornado";
             }
+        }
+        private void WeatherForecaster(Random rnd, Weather weather)
+        {
+            weather.ForecastedTemperature = rnd.Next(weather.Temperature, (rnd.Next(-5, 5) + weather.Temperature));
         }
 
     }
