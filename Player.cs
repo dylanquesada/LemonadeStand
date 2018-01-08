@@ -46,12 +46,13 @@ namespace LemonadeStand
         public void SellCup(decimal cupPrice)
         {
             Inventory.Money += cupPrice;
+            Inventory.PreparedLemonade -= 1;
         }
         
 
         public void MakeLemonade()
         {
-            Inventory.PreparedLemonade++;
+            Inventory.PreparedLemonade += 10;
             Inventory.NumberOfLemons -= Recipe.LemonsNeeded;
             Inventory.NumberOfIceCubes -= Recipe.IceCubesNeeded;
             Inventory.NumberOfSugarUnits -= Recipe.SugarUnitsNeeded;

@@ -9,6 +9,7 @@ namespace LemonadeStand
     class Day
     {
         //member variables
+
         private decimal dailyProfit;
         private int dailySales;
         private int temperatureCustomerModifier = 2;
@@ -77,19 +78,19 @@ namespace LemonadeStand
                     if (today[i].CheckWillBuy())
                     {
                         player.MakeLemonade();
+                        player.SellCup(player.Recipe.Price);
+                        DailySales++;
+                        DailyProfit += player.Recipe.Price;
+
                     }
                 }
                 else
                 {
+                    
                     DisplayEndOfDay(player);
-                }
 
-                
-                // if(customer will buy){
-                // cups made --;
-                //money ++
-            //}
-
+                    return;
+                }            
             }
         }
     }

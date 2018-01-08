@@ -50,10 +50,10 @@ namespace LemonadeStand
         //constructor
         public Inventory()
         {
-            NumberOfCups = 0;
-            NumberOfLemons = 0;
-            NumberOfSugarUnits = 0;
-            NumberOfIceCubes = 0;
+            NumberOfCups = 15;
+            NumberOfLemons = 15;
+            NumberOfSugarUnits = 20;
+            NumberOfIceCubes = 20;
             PreparedLemonade = 0;
             Money = 20m;
 
@@ -70,10 +70,10 @@ namespace LemonadeStand
                 case "lemons":
                     NumberOfLemons += quantity;
                     break;
-                case "ice":
+                case "ice cubes":
                     NumberOfIceCubes += quantity;
                     break;
-                case "sugar":
+                case "sugar units":
                     NumberOfSugarUnits += quantity;
                     break;
                 default:

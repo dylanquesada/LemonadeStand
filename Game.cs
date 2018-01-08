@@ -9,6 +9,7 @@ namespace LemonadeStand
     class Game
     {
         //member variables
+        private int gameDay = 1;
         string option;
         public Random rnd;
         Store store;
@@ -20,6 +21,12 @@ namespace LemonadeStand
             get { return numberOfTurns; }
             set { numberOfTurns = value; }
         }
+        public int GameDay
+        {
+            get { return gameDay; }
+            set { gameDay = value; }
+        }
+
         //constructor
         public Game()
         {
@@ -64,7 +71,10 @@ namespace LemonadeStand
                             break;
                     }
                 }
+                ready = false;
                 Day day = new Day(rnd);
+                Console.WriteLine("Day {0}:", GameDay);
+                GameDay++;
                 day.RunDay(day.Weather, rnd, player);
                 //Display Details
             }
