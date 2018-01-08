@@ -59,9 +59,9 @@ namespace LemonadeStand
             Console.WriteLine("Today's Profit: {0}", DailyProfit);
             player.Inventory.DisplayInventory(player.Inventory, player);
         }
-        private void DisplayForecast(Weather weather)
+        public void DisplayForecast(Weather weather)
         {
-            Console.WriteLine("Forecast for the day: {0} and {1}", weather.Temperature, weather.Atmosphere);
+            Console.WriteLine("Forecast for the day: {0} and {1}", weather.ForecastedTemperature, weather.ForecastedAtmosphere);
         }
         public decimal RunDay(Weather weather, Random rnd, Player player)
         {

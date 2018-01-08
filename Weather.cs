@@ -14,6 +14,7 @@ namespace LemonadeStand
         private int ChanceOfActOfGod = 10000000;
         private int MagicNumber = 42;
         private int forecastedTemperature;
+        private string forecastedAtmosphere;
         private int temperature;
         public int Temperature{
             get { return temperature; }
@@ -25,21 +26,28 @@ namespace LemonadeStand
             get { return atmosphere; }
             set { atmosphere = value; }
         }
+        public string ForecastedAtmosphere
+        {
+            get { return forecastedAtmosphere; }
+            set { forecastedAtmosphere = value; }
+        }
         private List<string> atmospheres = new List<string> {
-            "precipiation",
+            "precipitation",
             "overcast",
             "partly cloudy",
             "clear" };
         public int ForecastedTemperature
         {
             get { return forecastedTemperature; }
-            set { ForecastedTemperature = value; }
+            set { forecastedTemperature = value; }
         }
         //constructor
         public Weather(Random rnd)
         {
             GenerateAtmosphere(rnd);
             Temperature = generateTemperature(rnd);
+            WeatherForecaster(rnd);
+            AtmosphericForecaster(rnd);
         }
 
         //member methods
@@ -56,9 +64,19 @@ namespace LemonadeStand
                 atmosphere = "tornado";
             }
         }
-        private void WeatherForecaster(Random rnd, Weather weather)
+        private void WeatherForecaster(Random rnd)
         {
-            weather.ForecastedTemperature = rnd.Next(weather.Temperature, (rnd.Next(-5, 5) + weather.Temperature));
+            ForecastedTemperature = rnd.Next((Temperature - 5), (Temperature + 5));
+        }
+        private void AtmosphericForecaster(Random rnd)
+        {
+            if (rnd.Next(1, 100) > 33) {
+                ForecastedAtmosphere = Atmosphere;
+            }
+            else
+            {
+                ForecastedAtmosphere = "overcast";
+            }
         }
 
     }

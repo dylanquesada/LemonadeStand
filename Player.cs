@@ -47,6 +47,7 @@ namespace LemonadeStand
         {
             Inventory.Money += cupPrice;
             Inventory.PreparedLemonade -= 1;
+            Inventory.NumberOfCups -= 1;
         }
         
 

@@ -9,6 +9,7 @@ namespace LemonadeStand
     class Game
     {
         //member variables
+        private List<Day> days = new List<Day>();
         private decimal score = 0m;
         private int gameDay = 1;
         string option;
@@ -51,6 +52,13 @@ namespace LemonadeStand
             //Loop
             for (int i = 0; i < numberOfTurns; i++)
             {
+                Day day = new Day(rnd);
+                days.Add(day);
+            }
+            for(int i = 0; i < days.Count; i++)
+            {
+                Console.WriteLine("Day {0}:", GameDay);
+                days[i].DisplayForecast(days[i].Weather);
                 option = "";
                 while (!ready)
                 {
@@ -77,12 +85,14 @@ namespace LemonadeStand
                     }
                 }
                 ready = false;
-                Day day = new Day(rnd);
-                Console.WriteLine("Day {0}:", GameDay);
+                score += days[i].RunDay(days[i].Weather, rnd, player);
+                //Day day = new Day(rnd);
+                
                 GameDay++;
-                score += day.RunDay(day.Weather, rnd, player);
+                
                 //Display Details
                 Console.WriteLine("{0}'s Net Profit: ${1}", player.Name, score);
+
             }
         }
     }
