@@ -56,7 +56,7 @@ namespace LemonadeStand
         private void DisplayEndOfDay(Player player)
         {
             Console.WriteLine("Cups sold: {0}", DailySales);
-            Console.WriteLine("Today's Profit: {0}", DailyProfit);
+            Console.WriteLine("Today's Profit: ${0}", DailyProfit);
             player.Inventory.DisplayInventory(player.Inventory, player);
         }
         public void DisplayForecast(Weather weather)
