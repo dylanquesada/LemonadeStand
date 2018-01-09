@@ -98,6 +98,10 @@ namespace LemonadeStand
                 Console.WriteLine("{0}'s Net Profit: ${1}", player.Name, score);
 
             }
+            DatabaseConnection db = new DatabaseConnection();
+            db.OpenConnection();
+            db.ExecuteQueries("INSERT INTO lemonadestand.HighScores VALUES ('" + player.Name + "', " + Score + ");");
+            db.CloseConnection();
         }
     }
 }

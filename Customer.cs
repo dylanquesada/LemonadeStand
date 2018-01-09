@@ -38,6 +38,7 @@ namespace LemonadeStand
             switch (weather.Atmosphere)
             {
                 case "tornado":
+                    Console.WriteLine("There was a Tornado and the game ended with player fatality.");
                     Console.WriteLine("░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄");
                     Console.WriteLine("░░░░█░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░▀▀▄");
                     Console.WriteLine("░░░█░░░▒▒▒▒▒▒░░░░░░░░▒▒▒░░█");
@@ -53,6 +54,7 @@ namespace LemonadeStand
                     Console.WriteLine("░░░░░░░▀▄▄░▒▒▒▒░░░░░░░░░░█");
                     Console.WriteLine("░░░░░░░░░░▀▀▄▄░▒▒▒▒▒▒▒▒▒▒░█");
                     Console.WriteLine("░░░░░░░░░░░░░░▀▄▄▄▄▄░░░░░█");
+                    Console.WriteLine("The uninsured lemonade stand suffered total loss and irreparable damage.");
                     break;
                 case "clear":
                     ChanceOfBuying += 20;
