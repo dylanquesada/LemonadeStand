@@ -60,6 +60,7 @@ namespace LemonadeStand
             int quantity;
             while (!(option == "done"))
             {
+                player.Inventory.DisplayInventory(player.Inventory, player);
                 DisplayStore();
                 Console.WriteLine("{0}'s wallet: ${1}", player.Name, player.Inventory.Money);
                 option = userInterface.GetUserInput();

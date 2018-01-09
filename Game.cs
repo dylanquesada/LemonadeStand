@@ -57,6 +57,7 @@ namespace LemonadeStand
             }
             for(int i = 0; i < days.Count; i++)
             {
+                Console.Clear();
                 Console.WriteLine("Day {0}:", GameDay);
                 days[i].DisplayForecast(days[i].Weather);
                 option = "";

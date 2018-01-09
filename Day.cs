@@ -70,6 +70,7 @@ namespace LemonadeStand
             {
                 if (player.Inventory.NumberOfCups == 0)
                 {
+                    DisplayEndOfDay(player);
                     return DailyProfit;
                 }
                 if(player.Inventory.PreparedLemonade > 0)

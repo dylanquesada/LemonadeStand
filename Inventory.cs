@@ -50,11 +50,11 @@ namespace LemonadeStand
         //constructor
         public Inventory()
         {
-            NumberOfCups = 15;
-            NumberOfLemons = 15;
-            NumberOfSugarUnits = 20;
-            NumberOfIceCubes = 20;
-            PreparedLemonade = 0;
+            NumberOfCups = 9999;
+            NumberOfLemons = 9999;
+            NumberOfSugarUnits = 9999;
+            NumberOfIceCubes = 9999;
+            PreparedLemonade = 9999;
             Money = 20m;
 
         }

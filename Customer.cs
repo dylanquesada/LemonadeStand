@@ -25,16 +25,16 @@ namespace LemonadeStand
         //constructor
         public Customer(Random rnd, Weather weather, Recipe recipe)
         {
-            ChanceOfBuying = 2;  
             ChanceOfBuying = rnd.Next(1, 50);
+            AccountForCost(recipe.Price);
             AccountForWeather(weather);
             AccountForIngredients(rnd, recipe);
+            
         }
         //member methods
 
         public void AccountForWeather(Weather weather)
         {
-            //Console.WriteLine("Before weather: {0}", ChanceOfBuying);
             switch (weather.Atmosphere)
             {
                 case "tornado":
@@ -56,31 +56,24 @@ namespace LemonadeStand
                     break;
                 case "clear":
                     ChanceOfBuying += 20;
-                    //Console.WriteLine("After weather: {0}", ChanceOfBuying);
                     break;
                 case "partly cloudy":
                     ChanceOfBuying += 15;
-                    //Console.WriteLine("After weather: {0}", ChanceOfBuying);
                     break;
                 case "overcast":
                     ChanceOfBuying -= 15;
-                    //Console.WriteLine("After weather: {0}", ChanceOfBuying);
                     break;
                 case "precipitation":
-                    ChanceOfBuying -= 20;
-                    //Console.WriteLine("AW: {0}", ChanceOfBuying);
+                    ChanceOfBuying -= 20;            
                     break;
             }
         }
         public void AccountForCost(decimal cost)
         {
-            //Console.WriteLine("Before AccountForCost: {0}", ChanceOfBuying);
-            ChanceOfBuying /= (int)cost;
-            //Console.WriteLine("After AccountForCost: {0}", ChanceOfBuying);
+            ChanceOfBuying /= (int)Math.Ceiling(cost);
         }
         public void AccountForIngredients(Random rnd, Recipe recipe)
         {
-            //Console.WriteLine("Before Recipe: {0}", ChanceOfBuying);
             int preference = rnd.Next(1,4);
             switch (preference)
             {
@@ -108,11 +101,9 @@ namespace LemonadeStand
         {
             if(chanceOfBuying > 50)
             {
-                //Console.Write("Yes! ");
                 return true;
             }
-           // Console.WriteLine("No!");
-            return false;
+           return false;
         }
     }
 }
