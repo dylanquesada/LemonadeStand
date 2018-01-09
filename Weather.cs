@@ -78,6 +78,16 @@ namespace LemonadeStand
                 ForecastedAtmosphere = "overcast";
             }
         }
+        public static void DisplayWeeklyForecast(List<Day> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                Console.WriteLine("Day {0} Forecast: {1} and {2}.", 
+                    (i + 1), 
+                    list[i].Weather.ForecastedTemperature, 
+                    list[i].Weather.ForecastedAtmosphere);
+            }
+        }
 
     }
 }

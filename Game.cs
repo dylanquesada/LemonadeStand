@@ -57,7 +57,7 @@ namespace LemonadeStand
             }
             for(int i = 0; i < days.Count; i++)
             {
-                Console.Clear();
+                
                 Console.WriteLine("Day {0}:", GameDay);
                 days[i].DisplayForecast(days[i].Weather);
                 option = "";
@@ -66,6 +66,9 @@ namespace LemonadeStand
                     Console.WriteLine("What would you like to do? Enter a keyword: 'recipe', 'store', 'price', 'go'");
                     switch (Console.ReadLine())
                     {
+                        case "forecast":
+                            Weather.DisplayWeeklyForecast(days);
+                            break;
                         case "store":
                             store.RunStore(player);
                             break;
