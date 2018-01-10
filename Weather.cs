@@ -78,6 +78,12 @@ namespace LemonadeStand
                 ForecastedAtmosphere = "overcast";
             }
         }
+
+        //In the method below, I take care to follow the Single Responsibility Principle
+        // that states every class function etc. should have a single responsibility.
+        // In the example below, DisplayWeeklyForecast is responsible only for the
+        // writing of the forecast to the console. The unSOLID way might incorporate 
+        // code located in another method, such as GenerateForecast.
         public static void DisplayWeeklyForecast(List<Day> list)
         {
             for (int i = 0; i < list.Count; i++)

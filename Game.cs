@@ -9,15 +9,15 @@ namespace LemonadeStand
     class Game
     {
         //member variables
-        private List<Day> days = new List<Day>();
-        private decimal score = 0m;
-        private int gameDay = 1;
+        private List<Day> days;
+        private decimal score;
+        private int gameDay;
         string option;
         public Random rnd;
         Store store;
         UserInterface userInterface;
-        private bool ready = false;
-        private int numberOfTurns = 7;
+        private bool ready;
+        private int numberOfTurns;
         public int NumberOfTurns
         {
             get { return numberOfTurns; }
@@ -37,8 +37,11 @@ namespace LemonadeStand
         public Game()
         {
             userInterface = new UserInterface();
-
-
+            days = new List<Day>();
+            score = 0m;
+            gameDay = 1;
+            ready = false;
+            numberOfTurns = 7;
         }
 
         //member methods
@@ -47,9 +50,7 @@ namespace LemonadeStand
             Player player = new Player();
             store = new Store();
             rnd = new Random();
-            //Initial Menu -- get name, number of days to play
             Console.WriteLine("Welcome to Lemonade Stand.");
-            //Loop
             for (int i = 0; i < numberOfTurns; i++)
             {
                 Day day = new Day(rnd);
