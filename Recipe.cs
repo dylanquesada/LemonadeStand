@@ -43,7 +43,7 @@ namespace LemonadeStand
         public Recipe()
         {
             LemonsNeeded = 1;
-            SugarUnitsNeeded = 10;
+            SugarUnitsNeeded = 1;
             IceCubesNeeded = 1;
             price = .25m;
         }
@@ -86,6 +86,12 @@ namespace LemonadeStand
                         break;
                 }
             }
+        }
+        public void DisplayRecipe(Recipe recipe)
+        {
+            Console.WriteLine("{0} Lemons per pitcher", recipe.LemonsNeeded);
+            Console.WriteLine("{0} Ice cubes per pitcher", recipe.IceCubesNeeded);
+            Console.WriteLine("{0} Sugar units per pitcher", recipe.SugarUnitsNeeded);
         }
     }
 }
