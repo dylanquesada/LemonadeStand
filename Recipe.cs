@@ -59,11 +59,12 @@ namespace LemonadeStand
             }
             return false;
         }
-        public void SetRecipe(UserInterface userInterface)
+        public void SetRecipe(UserInterface userInterface, Player player)
         {
             option = "";
-            while(!(option == "done")) { 
-            Console.WriteLine("What would you like to change in the recipe? Enter 'lemons', 'ice cubes', or 'sugar units'. Enter 'done' to exit.");
+            while(!(option == "done")) {
+                player.Recipe.DisplayRecipe(player.Recipe);
+                Console.WriteLine("What would you like to change in the recipe? Enter 'lemons', 'ice cubes', or 'sugar units'. Enter 'done' to exit.");
                 option = Console.ReadLine();
                 switch (option)
                 {
@@ -89,6 +90,7 @@ namespace LemonadeStand
         }
         public void DisplayRecipe(Recipe recipe)
         {
+            Console.WriteLine("Your recipe:");
             Console.WriteLine("{0} Lemons per pitcher", recipe.LemonsNeeded);
             Console.WriteLine("{0} Ice cubes per pitcher", recipe.IceCubesNeeded);
             Console.WriteLine("{0} Sugar units per pitcher", recipe.SugarUnitsNeeded);

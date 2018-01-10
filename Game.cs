@@ -79,7 +79,7 @@ namespace LemonadeStand
                             store.RunStore(player);
                             break;
                         case "recipe":
-                            player.Recipe.SetRecipe(userInterface);
+                            player.Recipe.SetRecipe(userInterface, player);
                             break;
                         case "go":
                             ready = true;
