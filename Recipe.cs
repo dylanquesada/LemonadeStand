@@ -51,9 +51,9 @@ namespace LemonadeStand
         // member methods
         public bool HasEnoughIngredients(Inventory inventory)
         {
-            if (inventory.NumberOfLemons >= LemonsNeeded
-                && inventory.NumberOfIceCubes >= IceCubesNeeded
-                && inventory.NumberOfSugarUnits >= SugarUnitsNeeded)
+            if (inventory.lemons.Count >= LemonsNeeded
+                && inventory.icecubes.Count >= IceCubesNeeded
+                && inventory.sugarunits.Count >= SugarUnitsNeeded)
             {
                 return true;
             }

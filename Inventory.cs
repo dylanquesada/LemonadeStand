@@ -9,33 +9,16 @@ namespace LemonadeStand
     class Inventory
     {
         //member variables
-        private int numberOfCups;
-        private int numberOfLemons;
-        private int numberOfIceCubes;
-        private int numberOfSugarUnits;
+        public List<Lemon> lemons;
+        public List<Cup> cups;
+        public List<SugarUnit> sugarunits;
+        public List<IceCube> icecubes;
+
+        
         private decimal money;
         private int preparedLemonade;
 
-        public int NumberOfCups
-        {
-            get { return numberOfCups; }
-            set { numberOfCups = value; }
-        }
-        public int NumberOfLemons
-        {
-            get { return numberOfLemons; }
-            set { numberOfLemons = value; }
-        }
-        public int NumberOfIceCubes
-        {
-            get { return numberOfIceCubes; }
-            set { numberOfIceCubes = value; }
-        }
-        public int NumberOfSugarUnits
-        {
-            get { return numberOfSugarUnits; }
-            set { numberOfSugarUnits = value; }
-        }
+       
         public decimal Money
         {
             get { return money; }
@@ -50,10 +33,11 @@ namespace LemonadeStand
         //constructor
         public Inventory()
         {
-            NumberOfCups = 0;
-            NumberOfLemons = 0;
-            NumberOfSugarUnits = 0;
-            NumberOfIceCubes = 0;
+            lemons = new List<Lemon>();
+            cups = new List<Cup>();
+            icecubes = new List<IceCube>();
+            sugarunits = new List<SugarUnit>();
+
             PreparedLemonade = 0;
             Money = 20m;
 
@@ -62,22 +46,44 @@ namespace LemonadeStand
         //member methods
         public void AlterInventory(int quantity, string type)
         {
-            switch (type)
+            if(quantity > 0) {
+                switch (type)
+                {
+                    case "cups":
+                        cups = cups.Cast<Cup>().Concat((AddItem(quantity, type)).Cast<Cup>()).ToList();
+                        break;
+                    case "lemons":
+                        lemons = lemons.Cast<Lemon>().Concat((AddItem(quantity, type)).Cast<Lemon>()).ToList();
+                        break;
+                    case "ice cubes":
+                        icecubes = icecubes.Cast<IceCube>().Concat((AddItem(quantity, type)).Cast<IceCube>()).ToList();
+                        break;
+                    case "sugar units":
+                        sugarunits = sugarunits.Cast<SugarUnit>().Concat((AddItem(quantity, type)).Cast<SugarUnit>()).ToList();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if(quantity < 0)
             {
-                case "cups":
-                    NumberOfCups += quantity;
-                    break;
-                case "lemons":
-                    NumberOfLemons += quantity;
-                    break;
-                case "ice cubes":
-                    NumberOfIceCubes += quantity;
-                    break;
-                case "sugar units":
-                    NumberOfSugarUnits += quantity;
-                    break;
-                default:
-                    break;
+                switch (type)
+                {
+                    case "cups":
+                        cups = RemoveItem(quantity, type, cups.Cast<Item>().ToList()).Cast<Cup>().ToList();
+                        break;
+                    case "lemons":
+                        lemons = RemoveItem(quantity, type, lemons.Cast<Item>().ToList()).Cast<Lemon>().ToList();
+                        break;
+                    case "ice cubes":
+                        icecubes = RemoveItem(quantity, type, icecubes.Cast<Item>().ToList()).Cast<IceCube>().ToList();
+                        break;
+                    case "sugar units":
+                        sugarunits = RemoveItem(quantity, type, sugarunits.Cast<Item>().ToList()).Cast<SugarUnit>().ToList();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         public void AlterInventory(decimal quantity)
@@ -87,21 +93,65 @@ namespace LemonadeStand
         public void DisplayInventory(Inventory inventory, Player player)
         {
             Console.WriteLine("{0}'s Inventory:", player.Name);
-            Console.WriteLine("Cups: {0}", NumberOfCups);
-            Console.WriteLine("Lemons: {0}", NumberOfLemons);
-            Console.WriteLine("Sugar Units: {0}", NumberOfSugarUnits);
-            Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
+            Console.WriteLine("Cups: {0}", inventory.cups.Count);
+            Console.WriteLine("Lemons: {0}", inventory.lemons.Count);
+            Console.WriteLine("Sugar Units: {0}", inventory.sugarunits.Count);
+            Console.WriteLine("Ice Cubes: {0}", inventory.icecubes.Count);
             Console.WriteLine("Money Remaining: ${0}", Money);
         }
         public void DisplayInventory(Inventory inventory)
         {
             Console.WriteLine("Your Inventory:");
-            Console.WriteLine("Cups: {0}", NumberOfCups);
-            Console.WriteLine("Lemons: {0}", NumberOfLemons);
-            Console.WriteLine("Sugar Units: {0}", NumberOfSugarUnits);
-            Console.WriteLine("Ice Cubes: {0}", NumberOfIceCubes);
+            Console.WriteLine("Cups: {0}", inventory.cups.Count);
+            Console.WriteLine("Lemons: {0}", inventory.lemons.Count);
+            Console.WriteLine("Sugar Units: {0}", inventory.sugarunits.Count);
+            Console.WriteLine("Ice Cubes: {0}", inventory.icecubes.Count);
             Console.WriteLine("Money Remaining: ${0}", Money);
         }
-        
+        public List<Item> RemoveItem(int quantity, string type, List<Item> list)
+        {
+            for(int i = 0; i > quantity; i--)
+            {
+                list.RemoveAt(0);
+            }
+            return list;            
+        }
+        public List<Item> AddItem(int quantity, string type)
+        {
+            List<Item> list = new List<Item>();
+            switch (type)
+            {
+                case "cups":
+                    for(int i = 0; i < quantity; i++)
+                    {
+                        Cup cup = new Cup();
+                        list.Add(cup);
+                    }
+                    return list;
+                case "ice cubes":
+                    for (int i = 0; i < quantity; i++)
+                    {
+                        IceCube iceCube = new IceCube();
+                        list.Add(iceCube);
+                    }
+                    return list;
+                case "sugar units":
+                    for (int i = 0; i < quantity; i++)
+                    {
+                        SugarUnit sugarUnit = new SugarUnit();
+                        list.Add(sugarUnit);
+                    }
+                    return list;
+                case "lemons":
+                    for(int i = 0; i < quantity; i++)
+                    {
+                        Lemon lemon = new Lemon();
+                        list.Add(lemon);
+                    }
+                    return list;
+                default:
+                    return list;
+            }
+        }
     }
 }

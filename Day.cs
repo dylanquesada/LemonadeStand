@@ -68,7 +68,7 @@ namespace LemonadeStand
             List<Customer> today = GenerateCustomersToList(GenerateNumberOfCustomers(weather), weather, rnd, player);
             for (int i = 0; i < today.Count; i++)
             {
-                if (player.Inventory.NumberOfCups == 0)
+                if (player.Inventory.cups.Count == 0)
                 {
                     DisplayEndOfDay(player);
                     return DailyProfit;

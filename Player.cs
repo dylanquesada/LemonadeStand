@@ -47,16 +47,16 @@ namespace LemonadeStand
         {
             Inventory.Money += cupPrice;
             Inventory.PreparedLemonade -= 1;
-            Inventory.NumberOfCups -= 1;
+            Inventory.AlterInventory(-1, "cups");
         }
         
 
         public void MakeLemonade()
         {
             Inventory.PreparedLemonade += 10;
-            Inventory.NumberOfLemons -= Recipe.LemonsNeeded;
-            Inventory.NumberOfIceCubes -= Recipe.IceCubesNeeded;
-            Inventory.NumberOfSugarUnits -= Recipe.SugarUnitsNeeded;
+            Inventory.AlterInventory(-Recipe.LemonsNeeded, "lemons");
+            Inventory.AlterInventory(-Recipe.IceCubesNeeded, "ice cubes");
+            Inventory.AlterInventory(-Recipe.SugarUnitsNeeded, "sugar units");
         }
     }
 }
