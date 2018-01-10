@@ -51,6 +51,11 @@ namespace LemonadeStand
             store = new Store();
             rnd = new Random();
             Console.WriteLine("Welcome to Lemonade Stand.");
+            Console.WriteLine("This is a turn based game. Before each turn,");
+            Console.WriteLine("be sure to check the forecast, update your recipe and cost,");
+            Console.WriteLine("and buy your ingredients. The weather, cost, and your recipe");
+            Console.WriteLine("will affect sales, so play wisely. ");
+            Console.WriteLine("After your buy ingredients and change your recipe, type 'go' to start your day.");
             for (int i = 0; i < numberOfTurns; i++)
             {
                 Day day = new Day(rnd);
@@ -64,7 +69,7 @@ namespace LemonadeStand
                 option = "";
                 while (!ready)
                 {
-                    Console.WriteLine("What would you like to do? Enter a keyword: 'recipe', 'store', 'price', 'go'");
+                    Console.WriteLine("What would you like to do? Enter a keyword:'forecast' 'recipe', 'store', 'price', 'go'");
                     switch (Console.ReadLine())
                     {
                         case "forecast":
